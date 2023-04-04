@@ -1,9 +1,10 @@
 <?php
-session_start();
+// session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
-
-// $Apartinfo =$apartment->apartlist();
+if(!isset($_COOKIE['userName'])){
+	header('location:../index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,11 +42,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
             </div>
             <div class="header-right">
 
-
-                <!-- 
-        <span class="material-icons-outlined">notifications</span>
+        <!-- <span class="material-icons-outlined">notifications</span>
         <span class="material-icons-outlined">email</span>
-        <span class="material-icons-outlined">account_circle</span> -->
+        <span class="material-icons-outlined">account_circle</span>  -->
             </div>
         </header>
         <!-- End Header -->

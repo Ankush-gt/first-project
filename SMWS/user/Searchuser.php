@@ -2,17 +2,19 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/html/navbar.html');
-
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/SMWS/'.'protected/header.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/SMWS/'.'public/meta.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/SMWS/'.'navbar.html');
 // include('./user.php');
+$auth->isLogedin(); 
+
 ?>
 <html>
 
 <head>
     <title>Search</title>
 </head>
-<style>
 
-</style>
 
 <body>
     <div class="container">
@@ -28,6 +30,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/smws/html/navbar.html');
             // print_r($result);
         }
         ?>
+   
         <table>
             <tr>
                 <th>uId</th>
@@ -35,6 +38,13 @@ include($_SERVER['DOCUMENT_ROOT'] . '/smws/html/navbar.html');
                 <th>lastName</th>
             </tr> <br>
         </table>
+        <style>
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+</style>
         <?php
         if (!empty($result)) {
             ?>

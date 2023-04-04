@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/html/navbar.html');
-
+$auth->isLogedin(); 
 
 if (isset($_POST['firstName']) && isset($_POST['lastname']) && isset($_POST['submit'])) {
   $user = $_POST['firstName'];
@@ -10,7 +10,21 @@ if (isset($_POST['firstName']) && isset($_POST['lastname']) && isset($_POST['sub
   $email = $_POST['email'];
   $password = $_POST['uPassword'];
   $r_Id = $_POST['r_Id'];
-  $result = $userInfo->add($user, $lastName, $email, $password, $r_Id);
+  $file = $_POST['file'];
+
+  $filename = $file['name'];
+  // print_r($_filename);
+  //  exit;
+  // $fileerror = $file['error'];
+  // $filetmp =  $file['tmp_name'];
+  // $fileext = explode('.',$filename);
+  // $filecheck = strtolower(end($fileext));
+  
+  // $fileextstored = array('png', 'jpg' , 'jpeg');
+  // $destinationfile = 'uplaod'.$filename;
+  // move_uploaded_file($filetmp,$destinationfile);
+
+  $result = $userInfo->add($user, $lastName, $email, $password, $r_Id, $file);
 
 
 
@@ -46,8 +60,13 @@ if (isset($_POST['firstName']) && isset($_POST['lastname']) && isset($_POST['sub
         <input type="r_Id " placeholder="r_Id" name="r_Id">
       </div>
     </div>
-    <div class="action">
-      <button type="submit" name="submit">Signup</button>
+    <!-- *****new******* -->
+    <div class="input-field">
+      <label for="file",></label>
+        <input type="file" placeholder="file" name="file" > 
+      </div>
+      <div class="action">
+      <button type="submit" name="submit">Add</button>
     </div>
   </form>
 </div>

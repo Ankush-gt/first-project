@@ -1,6 +1,8 @@
 <?php
-session_start();
+// session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/SMWS/'.'protected/header.php');
+
 ?>
 <!DOCTYPE html>
 <html>
