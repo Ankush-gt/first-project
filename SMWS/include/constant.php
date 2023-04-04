@@ -3,7 +3,6 @@
 define("DBUSERNAME","root");
 define("DBPASSWORD","");
 define("DBHOSTNAME","localhost");
-define("DBNAME","swms");
-// define("PROJECT_ROOT", $_SERVER['DOCUMENT_ROOT'].'SMWS');
-
+define("DBNAME","SWMS");
+//  define("PROJECT_ROOT", $_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/SMWS/');
 ?>
