@@ -1,8 +1,13 @@
 <?php
-session_start();
+// session_start();
+// echo"hello";
 // include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
+if(!isset($_COOKIE['userName'])){
+	header('location:../index.php');
+}
 $info = $userInfo->getinfo();
+$auth->isLogedin(); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +35,7 @@ $info = $userInfo->getinfo();
 		<nav class="side-bar">
 			<div class="user-p">
 				<img src="user.jpg">
-				<h4>Dash</h4>
+				<h4>Hello <?php echo $info['firstName']; ?></h4>
 			</div>
 			<ul>
 				<li>
@@ -40,7 +45,7 @@ $info = $userInfo->getinfo();
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="notelist.php? n_Id=<?php echo $info['aId']; ?>">
 						<i class="fa fa-envelope-o" aria-hidden="true"></i>
 						<span>Notes</span>
 					</a>
@@ -59,13 +64,13 @@ $info = $userInfo->getinfo();
 				</li>
 
 				<li>
-					<a href="../user/Addnew.php">
+					<a href="add.php">
 						<i class="fa fa-envelope-o" aria-hidden="true"></i>
 						<span>Add user</span>
 					</a>
 				</li>
 				<li>
-					<a href="../user/Userlist.php">
+					<a href="list.php? chid=<?php echo $info['aId']; ?>">
 						<i class="fa fa-envelope-o" aria-hidden="true"></i>
 						<span>userlist</span>
 					</a>
@@ -77,13 +82,13 @@ $info = $userInfo->getinfo();
 					</a>
 				</li>
 				<li>
-					<<a href="list.php? chid=<?php echo $info['aId']; ?> ">>
+					<!-- <a href="list.php? chid=<?php echo $info['aId']; ?> "> -->
 						<i class="fa fa-cog" aria-hidden="true"></i>
 						<span>Setting</span>
 						</a>
 				</li>
 				<li>
-					<a href="../index.php">
+					<a href="http://localhost/smws/logout.php">
 						<i class="fa fa-power-off" aria-hidden="true"></i>
 						<span>Logout</span>
 					</a>
@@ -98,7 +103,7 @@ $info = $userInfo->getinfo();
 
 
 			<!-- <div><a href="list.php? chid=<?php echo $info['aId']; ?> "> Get All Users</div> -->
-			<div><a href="notelist.php? n_Id=<?php echo $info['aId']; ?>">Notifications</a></div>
+			<!-- <div><a href="notelist.php? n_Id=<?php echo $info['aId']; ?>">Notifications</a></div> -->
 			<!-- <div><a href=" logout.php">Logout</a></div> -->
 	</div>
 	</div>

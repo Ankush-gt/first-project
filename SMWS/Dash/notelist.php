@@ -1,11 +1,9 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
-// include($_SERVER['DOCUMENT_ROOT'] . '/smws/Dash/');
-
-
-
 $aId = $_GET['n_Id'];
+// print_r($_SESSION);
+$auth->isLogedin(); 
 
 
 

@@ -1,8 +1,12 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/smws/public/meta.php') ;
 include($_SERVER['DOCUMENT_ROOT'].'/smws/protected/header.php');
+// include($_SERVER['DOCUMENT_ROOT'] . '/smws/mail.php');
 
-if (isset($_POST['firstName']) && isset($_POST['lastname']) && isset($_POST['submit'])) {
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'protected/header.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'public/meta.php');
+$auth->isLogedin(); 
+if (isset($_POST['submit'])) {
     $user = $_POST['firstName'];
     $lastName = $_POST['lastname'];
     $email = $_POST['email'];
@@ -21,7 +25,7 @@ if (isset($_POST['firstName']) && isset($_POST['lastname']) && isset($_POST['sub
   
   <!-- partial:index.partial.html -->
   <div class="login-form">
-    <form method="POST">
+    <form action="../send.php"method="POST">
       <h1>Add new user</h1>
       <div class="content">
         <!-- <div class="input-field">
@@ -44,7 +48,7 @@ if (isset($_POST['firstName']) && isset($_POST['lastname']) && isset($_POST['sub
           <input type="aId " placeholder="aId" name="aId">
         </div>
       </div>
-      <div class="action">
+      <div class="input" action="../send.php"> 
         <button type="submit" name="submit">Add</button>
       </div>
     </form>

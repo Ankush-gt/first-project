@@ -1,7 +1,9 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
-
+// include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
+// include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
+include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'protected/header.php');
+include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'public/meta.php');
+$auth->isLogedin(); 
 if (isset($_POST['submit'])) {
     $n_Id = $_POST['n_Id'];
     $chair->deletenote($n_Id);

@@ -3,9 +3,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
 // include($_SERVER['DOCUMENT_ROOT'] . '/smws/Dash/');
 
-
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'protected/header.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'public/meta.php');
 
 $aId = $_GET['chid'];
+$auth->isLogedin(); 
 
 if (isset($_GET['uid'])) {
     $u_Id = $_GET['uid'];
@@ -23,7 +25,7 @@ if (isset($_GET['uid'])) {
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
 
-                <a class="nav-link" href="add.php">Add New Members</a>
+                <!-- <a class="nav-link" href="add.php">Add New Members</a> -->
 
 
 
@@ -73,8 +75,7 @@ if (isset($_GET['uid'])) {
                     <td>
                         <?php echo $row["email"]; ?>
                     </td>
-                    <!-- <td><button class="btn-danger btn" ><a href="delete.php? uid=<?php echo $row['Id']; ?>">Delete</a></td>
-                <td><button class="btn-dark btn" ><a href="update.php? updateid=<?php echo $row['Id']; ?>">Update</a></td> -->
+                    
                     <td><a href='update.php' ? onclick='return checkadd()'>Edit/update</td>
                     <td><a href='delete.php'?onclick =' return checkadd()'>Delete</td>
                     <td><a href='add.php'?onclick =' return checkadd()'>Add</td>
