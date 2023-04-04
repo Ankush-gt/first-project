@@ -2,7 +2,8 @@
 session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
-
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'protected/header.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'public/meta.php');
 // $Apartinfo =$apartment->apartlist();
 ?>
 <!DOCTYPE html>
