@@ -1,8 +1,8 @@
 <?php
-
+include("./include/config.php");
 // session_unset();
-
-// session_destroy();
-include("index.php");
+setcookie('userName', $row['firstName'],time()-100);
+session_destroy();
+header("Location: ./index.php");
 
 ?>

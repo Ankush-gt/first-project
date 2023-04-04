@@ -1,11 +1,15 @@
 <?php
-session_start();
-include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
+// session_start();
+//  include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
+//  include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
+include('./public/meta.php');
+include('./protected/header.php');
 
-
-
+if (!isset($_COOKIE['userName'])) {
+  header('location:index.php');
+}
 $info = $userInfo->getinfo();
+
 // print_r($_SESSION);
 // $Apartinfo =$apartment->apartlist();
 ?>
@@ -44,7 +48,7 @@ $info = $userInfo->getinfo();
       </div>
       <div class="header-right">
         <h1>Hello,
-           <?php echo $info['firstName']; ?>  
+          <?php echo $info['firstName']; ?>
         </h1>
 
         <!-- 
@@ -72,8 +76,8 @@ $info = $userInfo->getinfo();
         </li>
         <li class="sidebar-list-item">
         <li class="sidebar-list-item">
-          <a href="#" target="_blank">
-            <span class="material-icons-outlined"></span>About
+          <a href="#" class="profile">
+            <img src=""><h2>profile<h2>
           </a>
         </li>
         <!-- <li class="sidebar-list-item"> -->

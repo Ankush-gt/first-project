@@ -1,6 +1,8 @@
 <?php
-include('./public/meta.php');
-include('./public/header.php');
+// include('./public/meta.php');
+// include('./public/header.php');
+include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/SMWS/'.'protected/header.php');
+include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/SMWS/'.'public/meta.php');
 ?>
 <div class="login-form">
   <form>

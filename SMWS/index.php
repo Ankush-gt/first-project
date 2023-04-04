@@ -1,29 +1,36 @@
 <?php
 include('./public/meta.php');
 include('./public/header.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'protected/header.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'public/meta.php');
+
 $outPut = "";
+if(isset($_COOKIE['userName'])){
+	header('location: Dashboard.php');
+}
 if (isset($_POST['submit'])) {
   $userName = $_POST['email'];
   $userPassword = $_POST['uPassword'];
-  session_start();
-
-  $outPut =$auth->login($userName, $userPassword);
+  // echo $userName, $userPassword;
+  // session_start();
+  $outPut = $auth->login($userName, $userPassword);
 
   if ($outPut) {
-    echo "Done";
-    // $_SESSION['email'] = $userName;
-    // $_SESSION['uPassword'] = $userPassword;
-    // print_r($_SESSION);
+    
     header("Location: Dashboard.php");
     echo "<br>";
   } else {
     $outPut = "incorrect information";
+//     "
+//    <script>alert(' incorrect information');</script>
+
+// ";
   }
 }
 
 ?>
 
- <head>
+<head>
   <title>multi-user role-based-login-system</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -39,29 +46,46 @@ if (isset($_POST['submit'])) {
       <label for="password" class="form-label">uPassword</label>
       <input type="password" name="uPassword" class="form-control" id="uPassword">
     </div>
-    <div class="mb-1">
-      <label class="form-label">Select User Type:</label>
-    </div>
-    <select class="form-select mb-3" name="role" aria-label="Default select example">
-      <option selected value="user">User</option> 
-      <!-- <option value="admin">Admin</option>
+    <br />
+    <input type="checkbox" name="remember"  id="agree" /> keep me .
+    <br />
+    <!-- <select class="form-select mb-3" name="role" aria-label="Default select example">
+      <option selected value="user">User</option> -->
+    <!-- <option value="admin">Admin</option>
       <option value="chairman">chairman</option>
       <option value="member">member</option> -->
 
     </select>
 
     <div class="action">
-      <input type="submit" name="submit" value="Login"></button> 
-       <!-- <?php echo $outPut ? ($outPut) : (""); ?> -->
-     </div>
+      <input type="submit" name="submit" value="Login"></button>
+      <?php echo $outPut ? ($outPut) : (""); ?>
+    </div>
   </form>
 </div>
 </body>
 
 </html>
+<?php
+
+//  extract($_REQUEST);
+//  $file=fopen("logininfo.txt","a");
+//  fwrite($file,$email);
+//  fwrite($file,$uPassword);
+// //  $fwrite =( "$file". ("email: ".$email. " Password: ". $uPassword." ". date("yy/mm/dd h:i:s")));
+//  fclose($file);
+
+extract($_REQUEST);
+$file = fopen("logininfoo.txt", "w");
+date_default_timezone_set("Asia/Calcutta");
+$str = fwrite($file, "email: " . $email . "'\n' Password: " . $uPassword . " '\n'" . date("d/m/y h:i:s"));
+fclose($file);
+
+
+?>
 
 <!-- ********************************************************************************************** -->
- <!-- <!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
