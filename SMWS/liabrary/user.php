@@ -32,8 +32,8 @@ class user
         $sql = "SELECT * FROM `user`";
         $result = mysqli_query($conn, $sql);
         $num = mysqli_num_rows($result);
-        echo $num;
-        echo " records found in the DataBase<br>";
+        // echo $num;
+        // echo " records found in the DataBase<br>";
         echo "<br>";
         if ($num > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -52,10 +52,11 @@ class user
         $row = mysqli_fetch_array($result2);
         return $row;
     }
-    function add($firstName, $lastname, $email, $uPassword, $r_Id)
+    function add($firstName, $lastname, $email, $uPassword, $r_Id,$file)
     {
         global $conn;
-        $query = "INSERT INTO user ( `firstName`,`lastName`,`email`,`uPassword`,`r_Id`) VALUES ('$firstName','$lastname','$email','$uPassword','$r_Id')";
+        
+        $query = "INSERT INTO user ( `firstName`,`lastName`,`email`,`uPassword`,`r_Id`,`file`) VALUES ('$firstName','$lastname','$email','$uPassword','$r_Id','$file')";
         $result = $conn->query($query);
         if ($result) {
             $sql = "SELECT uId FROM user WHERE email = '$email' And uPassword = '$uPassword'";
@@ -86,6 +87,7 @@ class user
         $result =$conn->query($sql);
         echo "Deleted SuccessFully successfully";
 }
+
 }
 $userInfo = new User();
 
