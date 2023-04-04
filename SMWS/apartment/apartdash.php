@@ -1,8 +1,11 @@
 <?php
-session_start();
+// session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
-
+include($_SERVER['DOCUMENT_ROOT'].'/smws/html/navbar.html');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'protected/header.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/projects/srs-b4-Intern-5/include/'.'public/meta.php');
+$auth->isLogedin(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,14 +103,13 @@ include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
             <div class="charts">
             </div>
         </main>
-        End Main
+     
 
     </div>
 
-    Scripts
-    ApexCharts
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-    Custom JS
+    
     <script src="js/scripts.js"></script>
 </body>
 
