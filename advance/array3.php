@@ -1,0 +1,26 @@
+<?php
+$parent = '
+[{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"44.00"},{"vendor_name":"Edufficient","lead_payIn":"40.00"},{"vendor_name":"Edufficient","lead_payIn":"40.00"},{"vendor_name":"Edufficient","lead_payIn":"40.00"},{"vendor_name":"Edufficient","lead_payIn":"40.00"},{"vendor_name":"Edufficient","lead_payIn":"40.00"},{"vendor_name":"Edufficient","lead_payIn":"40.00"},{"vendor_name":"Ronin Revenue","lead_payIn":"30.00"},{"vendor_name":"Ronin Revenue","lead_payIn":"30.00"},{"vendor_name":"Ronin Revenue","lead_payIn":"30.00"},{"vendor_name":"Ronin Revenue","lead_payIn":"30.00"},{"vendor_name":"Ronin Revenue","lead_payIn":"30.00"},{"vendor_name":"Ronin Revenue","lead_payIn":"30.00"},{"vendor_name":"Ronin Revenue","lead_payIn":"30.00"},{"vendor_name":"Higher Level Education","lead_payIn":"25.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"},{"vendor_name":"QMP","lead_payIn":"80.00"}]';
+
+$array = json_decode($parent, TRUE);
+// echo "<pre>";print_r($array);echo "</pre>";
+
+$totals = array();
+// echo "<table>";
+// echo "<tr><th>Partner Name</th><th>Total PayIn Revenue</th></tr>";
+
+foreach ($array as $item) {
+     $vendor_name = $item['vendor_name'];
+     $lead_payIn = $item['lead_payIn']   ;
+    
+if (array_key_exists($vendor_name, $totals)) {
+    $totals[$vendor_name] += $lead_payIn; 
+    
+} else {
+    $totals[$vendor_name] = $lead_payIn ;
+}
+}
+// echo "[" . implode("", $totals,) . "]<br>\n";
+print_r($totals) ."<br>"; 
+// echo "<tr><td>$vendor_name</td><td>$lead_payIn</td></tr>";
+?>
