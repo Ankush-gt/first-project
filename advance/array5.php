@@ -12,5 +12,6 @@ function find_common_elements($array1, $array2)
 $array1 = [1, 2, 3, 4, 5];
 $array2 = [3, 4, 5, 6, 7];
 $common = find_common_elements($array1, $array2);
-print_r($common);
+// print_r($common);
+echo "Ouput will Be:   ". '[' . implode(', ', $common) . ']';
 ?>

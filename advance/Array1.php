@@ -4,26 +4,45 @@ $str='[{"partner_name":"Liquid Education","lead_payIn":"44.00"},{"partner_name":
 
 $array = json_decode($str, TRUE);
 // echo "<pre>";print_r($array);echo "</pre>";
-$totals = array();
-// foreach ($array as $partner) {   
-// 	echo "partner_name: " . $partner['partner_name'] . "<br>";   
-// 	echo "lead_payIn: " . $partner['lead_payIn'] . "<br>";   
+// $totals = array();
+// 	foreach ($array as $item) {
+//     $partner_name = $item['partner_name'];
+// 	$lead_payIn = $item['lead_payIn'] ;
+//     if (array_key_exists($partner_name, $totals)) {
+//         $totals[$partner_name] += $lead_payIn ; 		
+//     } else {
+//         $totals[$partner_name] = $lead_payIn ;
+//     }
+// }
+// print_r($totals);
 
-
-	foreach ($array as $item) {
-		"<pre>";$partner_name = $item['partner_name'];"<pre>";
-	$lead_payIn = $item['lead_payIn'] ;
-	 
-    if (array_key_exists($partner_name, $totals)) {
-        $totals[$partner_name] += $lead_payIn ; 
-		
+$revenue = [];
+foreach ($array  as $transaction) {
+    $partner = $transaction['partner_name'];
+    $lead_payIn = floatval($transaction['lead_payIn']);
+    if (isset($revenue[$partner])) {
+        $revenue[$partner] += $lead_payIn;
     } else {
-        $totals[$partner_name] = $lead_payIn ;
+        $revenue[$partner] = $lead_payIn;
     }
 }
 
-print_r($totals);
+echo "<table><tr><th>Partner Name</th><th>Total PayIn Revenue</th></tr>";
+foreach ($revenue as $partner => $lead_payIn) {
+    echo "<tr><td>$partner</td><td>$lead_payIn</td></tr>";
+    // echo"$partner" ."<br>";
+    // echo" $lead_payIn";
+}
+echo "</table>";
 ?>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+  border-collapse: collapse;
+    }
+</style>
 
 
 

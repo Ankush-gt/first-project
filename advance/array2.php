@@ -9,7 +9,6 @@ foreach ($array as $k => $row) {
 
 		echo "ID: " . $k['id'] . "<br>";
 		echo "Title: " . $k['title'] ." ". $k['yearReleased'] . "<br>";
-		// echo "Release date: " . $k['yearReleased'] . "<br>";
 		echo "Director: " . $k['director'] . "<br>";
 		echo "cast: " . implode(" ,", $k['cast']) . "<br>";
 	}
